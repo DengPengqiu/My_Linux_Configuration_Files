@@ -1,0 +1,444 @@
+0. zsh && oh-my-zsh && autojump && tmux && fasd && spark(not the Apache spark framework)
+zsh - shell with a lot of features, peharps it's the most powerful shell
+oh-my-zsh - Excellent zsh configuration in GitHub
+tcsh - TENEX C shell, an enhanced version of Berkeley C shell
+ksh - Real, AT&T version of korn shell
+autojump - shell extension jump to the frequently used directories
+tmux - Terminal Multiplexer (added some useful plugins, such as xclip)
+xclip - command line interface to X selections
+powerline - prompt and statusline utility
+tmux-powerline in Github - statusbar in tmux that looks like powerline that consist of dynamic
+                           segments
+fonts-powerline - powerline symbols font
+fasd - command-line productivity booster, offers quick access to files and directories
+parallel - build and execute shell command-line from stdin in parallel
+silversearcher-ag - super fast grep-like string search tool, alternative tool for ack-grep
+pandoc - general markup converter
+
+sudo apt-get install zsh zsh-doc tcsh ksh autojump tmux powerline fonts-powerline
+
+0. Search tool
+Ack, better tool than grep.  sudo apt-get install ack-grep
+pdfgrep - Search in pdf file for strings match a regular expression.
+
+0. fonts
+ttf-bitstream-vera - The Bitstream Vera family of free TrueType fonts
+
+0. Input Methods
+fcitx - Flexible Input Method Framework
+sudo apt-get install im-config fcitx-gtk2 fcitx-gtk3 fcitx-qt4
+
+1.Editor
+vim, gvim(vim-gnome, or vim-gtk)
+sudo apt-get install gtk2-engines vim-gtk vim-gui-common vim-doc vim-runtime
+注意，不知为啥，当我输入命令:UpdateTypes 后，vim有时会死机，并且内存占用量会暴涨。以后要高亮Tag，
+先使用ctags生成tag，在调用:UpdateTypes 命令
+
+when you type apt-cache search vim | grep -w vim, you may find several useful
+plugins for vim
+
+tools combine with vim
+ctags(or exuberant-ctags) - build tag file indexes of source code definitions
+cscope
+wmctrl(for gvim auto fullscreen)
+sudo apt-get install exuberant-ctags cscope wmctrl
+在Fedora中，安装gvim只需输入sudo yum install gvim; 而在Ubuntu下，gvim有两种: vim-gnome和vim-gtk,
+前者基于gnome2, 后者基于gtk2, 建议安装vim-gtk. 另外为避免出现Gtk-WARNING,
+建议再sudo apt-get install gtk2-engines;
+
+vim-addon-manager
+
+gedit
+
+Code formatting tools
+indent - C language source code formatting program.
+indent-doc
+astyle - Source code indenter for C, C++, Objective-C, Objective-C++, C# and Java.
+
+关于字体设置
+gnome-tweak-tool
+我用过Ubuntu和Fedora后，发觉在相同的字体设置下，Ubuntu的字体要比Fedora的细一些，原因是Ubuntu默认的font hinting(微调)为None,想要让Ubuntu的字体粗一些的方法就是安装一个软件: gnome-tweak-tool。sudo apt-get install gnome-tweak-tool, 然后点选Font-->hinting, 选择Full或者Medium。
+
+2.Compiler and Linker
+gcc
+gcc-doc
+g++(or gcc-c++ in Redhat, Fedora and CentOS)
+
+LLVM, clang, clang++ and LLDB
+llvm(it will choose the latest version in current repository), llvm-runtime
+llvm-3.6(or newer), llvm-3.6-doc, llvm-3.6-dev, llvm-3.6-examples, llvm-3.6-runtime, llvm-3.6-tools
+libllvm3.6, libllvm3.6-dbg
+
+clang/clang++ 3.6(or newer)
+clang(it will choose the latest version in current repository)
+clang-3.6, clang-3.6-doc, clang-3.6-examples clang-format-3.6, clang-modernize-3.6
+libclang-3.6-dev, libclang-common-3.6-dev, python-clang-3.6
+
+LLDB(3.6 or newer)
+lldb(it will choose the latest version in current repository)
+lldb-3.6, lldb-3.6-dev, liblldb-3.6, liblldb-3.6-dev, python-lldb-3.6
+---------------------
+How to lauch lldb in Ubuntu? Type lldb-3.6 in Terminal, Do not forget "-3.6", or make a soft link,
+which name as "lldb", link to lldb-3.6.
+
+ninja
+build-essential(only for Ubuntu, not Fedora)
+
+
+3.Project Manager
+make
+cmake
+autoconf
+automake
+libtool
+
+
+4.program debugger
+gdb
+ddd
+
+
+5.static programm debugger
+splint(checking the C/C++ source code file);
+strace, strace+;
+
+使用Mtrace简单的进行内存泄漏检测;
+kmtrace(malloc trace)
+
+ElectricFence(sudo apt-get install electric-fence); only for C
+
+jemalloc - general-purpose scalable concurrent malloc(3) implementation
+sudo apt-get install libjemalloc1 libjemalloc1-dbg libjemalloc-dev
+
+DUMA(Detect Unintended Memory Access), 它是Electric Fence的加强版;
+它添加了如下特性：
+能Hook malloc(), call(), memalign(), strdup(), operator new, operator new[],free(),
+operator delete 和 operator delete[]。
+能够精确的检测到违规方位的指令，并支持使用调试器定位它在源代码中的位置。
+能够检测到不匹配的内存分配与释放函数，如：使用 malloc() 分配但却使用 delete 删除。
+可以检测内存泄漏。这是Electric Fence不支持的。
+：如果想在链接的时候使用 duma 的静态库，其他的库则默认使用动态库。则可以这样编译：
+g++ -g -O0 heap-corruption.cc -o heapC -Wl,-Bstatic,-lduma -Wl,-Bdynamic -pthread
+sudo apt-get install duma
+
+static code checking tool
+cppcheck   sudo apt-get install cppcheck
+scan-build(It's a clang tool, needn't install seperately)
+scan-view(It's a clang tool, needn't install seperately)
+
+C/C++ header files analyzer
+iwyu(Include What You Used) It use clang to analyze #include in C/C++ source files
+sudo apt-get install iwyu
+
+cflow
+cxref
+
+" the following programs was used for python
+cython(C Extensions for Python)
+pyflakes
+pylint
+pychecker
+vim-python-jedi
+pep8
+python-autopep8(the binary file is autopep8 in Ubuntu), sudo apt-get install
+                python-autopep8
+usage: autopep8 -i *py
+python-memprof - memory profiler for Python (Python 2)
+python3-memprof - memory profiler for Python (Python 3)
+pythontracer - Python programs' execution tracer and profiler
+PythonCallGraph(Python Call Graph is a Python module that creates call graph
+                visualizations for Python applications)
+runsnakerun - GUI utility for (python) cProfile or Profile profiler dumps
+
+Python pdf miner
+sudo apt-get install Python-pdfminer
+
+6.Program Checker
+valgrind(memory Checker, especially for dynamic memory allocation)
+valgrind是用仿真器的方式实现的，是一个工具套件，包括Memcheck，Cachegrind，Callgrind，Massif，
+Helgrind，DRD，Lackey, Nulgrind等工具;
+
+kcachegrind(visualization tool for valgrind)
+
+pyprof2calltree(Help visualize profiling data from cProfile with kcachegrind and qcachegrind)
+
+gprof(After installing this software, you can use gprof both in Fedora and
+      Ubuntu. Just add -pg in CFLAGS or CXXFLAGS in Makefile)
+gprof命令格式如下:
+gprof <binary_file> <gmon.out> <other parameters>
+gprof vpr gmon.out -q
+gprof最常用的参数如下:
+-b 不再输出统计图表中每个字段的详细描述;
+
+-p 只输出函数的调用图（Call graph的那部分信息）;
+
+-q 只输出函数的时间消耗列表;
+
+-e Name 不再输出函数Name及其子函数的调用图（除非它们有未被限制的其它父函数）。可以给定多个-e标志, 一个-e标志只能指定一个函数;
+
+-E Name 不再输出函数Name及其子函数的调用图，此标志类似于-e标志，但它在总时间和百分比时间的计算中排除了由函数Name及其子函数所用的时间;
+
+-f Name 输出函数Name及其子函数的调用图。可以指定多个-f标志。一个-f标志只能指定一个函数;
+
+-F Name 输出函数Name及其子函数的调用图，它类似于-f标志，但它在总时间和百分比时间计算中仅使用所打印的例程的时间。可以指定多个-F标志。一个-F标志只能指定一个函数。-F标志覆盖-E标志;
+
+-z 显示使用次数为零的例程（按照调用计数和累积时间计算）。
+
+不过,gprof不能显示对象之间的继承关系,这也是它的弱点。
+
+gprof2dot.py
+Usage:
+    gprof2dot.py [options] [file] ...
+
+Options:
+  -h, --help            show this help message and exit
+  -o FILE, --output=FILE
+                        output filename [stdout]
+  -n PERCENTAGE, --node-thres=PERCENTAGE
+                        eliminate nodes below this threshold [default: 0.5]
+  -e PERCENTAGE, --edge-thres=PERCENTAGE
+                        eliminate edges below this threshold [default: 0.1]
+  -f FORMAT, --format=FORMAT
+                        profile format: axe, callgrind, hprof, json, oprofile,
+                        perf, prof, pstats, sleepy, sysprof or xperf [default:
+                        prof]
+  --total=TOTALMETHOD   preferred method of calculating total time: callratios
+                        or callstacks (currently affects only perf format)
+                        [default: callratios]
+  -c THEME, --colormap=THEME
+                        color map: color, pink, gray, bw, or print [default:
+                        color]
+  -s, --strip           strip function parameters, template parameters, and
+                        const modifiers from demangled C++ function names
+  -w, --wrap            wrap function names
+  --show-samples        show function samples
+  -z ROOT, --root=ROOT  prune call graph to show only descendants of specified
+                        root function
+  -l LEAF, --leaf=LEAF  prune call graph to show only ancestors of specified
+                        leaf function
+  --skew=THEME_SKEW     skew the colorization curve.  Values < 1.0 give more
+                        variety to lower percentages.  Values > 1.0 give less
+                        variety to lower percentages
+
+Combine gprof2dot with gprof
+gprof <binary_file> | gprof2dot.py | dot -Tpng -o <profile_output_file_name>.png
+gprof ./bin/vpr gmon.out_orig -b | gprof2dot.py -n0 -e0 | dot -Tpng -o output.png
+
+sysprof(statistical, system wide profiler for Linux. But it need GUI, and Linux
+        must had install GTK+)
+By default gprof2dot.py generates a partial call graph, excluding nodes and edges
+with little or no impact in the total computation time. If you want the full call
+graph then set a zero threshold for nodes and edges via the -n / --node-thres
+and -e / --edge-thres options, as:  gprof2dot.py -n0 -e0
+
+
+mutrace - mutex and realtime memory allocation profiling tools
+
+libc6-prof
+
+google-perftool(google-perftool only used for C/C++ Program)
+google-perftools had 4 tools: tcmalloc, heap-checker, heap-profiler and cpu-profiler.
+sudo apt-get install google-perftools, libgoogle-perftools-dev, libgoogle-perftools4,
+     libgoogle-perftools4-dbg
+
+Oprofile - system wide profiler for linux system(Java runtime library)
+sudo apt-get install oprofile oprofile-gui
+
+NUMA tool
+sudo apt-get install numactl
+
+C/C++ logging library
+liblog4c-dev, liblog4c-doc, liblog4cxx10, liblog4cpp5
+liblog4cplus-1.0-4, liblog4cplus-dev, liblog4cplus-dbg
+liblog4cxx10    A logging library for C++
+liblog4cxx-dev  A logging library for C++ (development files)
+liblog4cxx-doc  Document for log4cxx
+
+7.lex and grammar analyzer
+flex
+yacc(or bison)
+
+
+8.version control system
+subversion
+git, git-core, git-doc, gitk, git-flow
+mercurial
+
+9.lib file
+boost(or libboost)
+sudo apt-get install libboost-all-dev
+ncurses-devel
+gcc-multilib
+g++-multilib
+
+libtinyxml - C++ library for parsing XML file
+libmysqlcppconn7 - MySQL cpp connector library, use cpp to access mysql
+libmysql++3, libmysql++-doc, libmysql++-dev, libmysqlclient-dev  MySQL C++ libraries binding
+
+B+Tree implementation in C++
+sudo apt-get install stx-btree-dev stx-btree-demo stx-btree-doc
+It includes btree_map, btree_set, btree_multimap, btree_multiset
+
+gperf - Perfect hash function generator, sudo apt-get install gperf
+
+libace-6.0.3  C++ Network Programming Framework
+libace-dev    C++ Network Programming Framework - development files
+libace-doc    C++ Network Programming Framework - documents
+
+10.Unit Test Tools for C/C++, Java, Python
+libgtest-dev: Google's framework for writing C++ test - header files(googletest)
+
+cpputest(cxxuint) C/C++ based unit test framework - main package
+libcpputest-dev   C/C++ based unit test framework - headers and static libraries
+
+google-mock  google's framework for writing and using C++ mock classes
+
+C++ kNN library
+FLANN - Fast Library for Approximate Nearest Neighbor
+sudo apt-get install libflann-dev libflann1.8 flann-doc
+
+libcppunit-1.13-0, libcppunit-dev, libcppunit-doc - Unit Testing library for C++
+libcunit1, libcunit1-dev, libcunit-doc - Unit Test Library for C
+libcunit1-ncurses, libcunit1-ncurse-dev - Unit Test Library for C(ncurses)
+
+junit, junit-doc - Automated test framework for Java(JUnit) and its document
+junit4, junit4-doc - JUnit regression test framework for Java and its document
+libjunitperf-java, libjunitperf-java-doc - JUnit extensions for performance and
+                   scalability testing
+python-unit - Unit Test Framework for Python
+shunit2 - Unit Test Framework for Bourne-based Shells
+
+key-value storage library
+sudo apt-get install libleveldb1 libleveldb-dbg leveldb-doc
+
+memcachedb - persistance storage engine using the Memcache protocal
+sudo apt-get install memcachedb
+
+redis - persistance key-value database in memory with network interface
+sudo apt-get install redis-server redis-tools python-redis
+
+11.Programming Language
+Python
+scipy, numpy & matplotlib & scikit-learn
+sudo apt-get install python-numpy python-numpy-doc python-scipy python-scipy-doc
+                     python-matplotlib python-matplotlib-doc python-sklearn python-sklearn-doc
+                     python-dev
+
+scrapy - Python web scraping and crawling framework
+sudo apt-get install python-scrapy python-scrapy-doc
+
+Perl
+Ruby
+PHP5
+R sudo apt-get install r-cran
+JavaScript
+node.js - evented I/O for V8 javascript
+sudo apt-get install nodejs
+
+Java
+openjdk-8-dbg
+openjdk-8-demo
+openjdk-8-doc
+openjdk-8-jdk
+
+12.Data Visualization
+gnuplot, gnuplot-data, gnuplot-doc
+gnuplot-x11, gnuplot-qt, gnuplot-tex
+hershey-font-gnuplot - Hershey vector fonts renderer for gnuplot
+libgnuplot-iostream-dev - C++ API for gnuplot. Header
+libgnuplot-iostream-doc - C++ API for gnuplot. Docs and Examples
+python-gnuplot - python Interface to gnuplot
+
+r-cran-ggplot2 - implementation of R Grammar of Graphics
+graphviz, graphviz-doc
+
+
+13.Scientific Computation
+scilab
+
+
+14.file reader
+Adobe pdf reader
+calibre, calibre-bin
+chmsee
+
+
+15.office
+libreoffice
+
+
+16.webrowser
+firefox(Don't use chrome in Linux, it occupied huge memory)
+
+17.mail client
+thunderbird
+
+
+18. LaTeX
+texlive - A decent selection of the Tex Live packages
+texlive-base - Essential Program and files
+texlive-binaries
+texlive-doc-en, texlive-doc-zh
+texlive-lang-en, texlive-lang-chinese, texlive-lang-cjk
+texlive-latex-*, TeX Live - LaTeX packages
+jabref - Graphical frontend to manage BibTeX databases
+
+19. GPGPU for CUDA
+libcudart5.5      nvidia cuda runtime library
+nvidia-cuda-dev   NVIDIA CUDA development files
+nvidia-cuda-doc   NVIDIA CUDA and OpenCL document
+nvidia-cuda-gdb   NVIDIA CUDA gdb
+nvidia-cuda-toolkit  NVIDIA CUDA toolkit
+python-pycuda
+python-pycuda-doc
+
+
+20. Thread-Parallel Computing
+1) Intel Thread-Building Block(TBB) In 2015-04-26, its latest version is v4.3
+sudo apt-get install libtbb-dev libtbb-doc libtbb2 libtbb2-dbg tbb-examples
+2) Message-Passing Interface(MPI)
+sudo apt-get install libopenmpi-dev libopenmpi1.6 openmpi-bin openmpi-checkpoint
+openmpi-common openmpi-doc openmpipython
+3) Intel Cilk Plus Language Extension
+sudo apt-get install libcilkrst5 libcilkrst5-dbg
+
+
+source code for reading:
+WebBench
+TinyHttpd
+cJSON
+CMonkery
+Libev
+Lua
+sqlite
+Nginx
+UNIX v6
+Memcached
+NetBSD
+
+Document tools
+Doxygen - Documentation system for C, C++, Java, Python and other languages
+sudo apt-get install doxygen doxygen-doc doxygen-gui
+markdown
+
+Web blog manager
+wordpress
+wordpress-l10n - weblog manager language files
+wordpress-openid - OpenID plugin for wordpress
+wordpress-shibboleth - Shibboleth plugin for wordpress
+wordpress-theme-twentyfifteen - theme file for wordpress
+wordpress-theme-twentyfourteen - theme file for wordpress
+wordpress-theme-twentythirteen - theme files for wordpress
+wordpress-xrds-simple - XRDS-Simple plugin for wordpress
+jekyll - Simple, blog aware, static site generator
+
+octopress
+
+
+System Management
+htop - interactive processes viewer
+iotop - simple top-like I/O monitor
+iftop - display bandwidth usage information on a network interface
+
+Statistical tool (stat, vmstat, ifstat, iostat, pidstat)
+dstat - versatile resource statistical tool (vmstat, iostat, pidstat)
