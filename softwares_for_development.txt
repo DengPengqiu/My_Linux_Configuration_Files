@@ -9,20 +9,19 @@ xclip - command line interface to X selections
 powerline - prompt and statusline utility
 tmux-powerline in Github - statusbar in tmux that looks like powerline that consist of dynamic
                            segments
-fonts-powerline - powerline symbols font
 fasd - command-line productivity booster, offers quick access to files and directories
 parallel - build and execute shell command-line from stdin in parallel
-silversearcher-ag - super fast grep-like string search tool, alternative tool for ack-grep
-pandoc - general markup converter
 
 sudo apt-get install zsh zsh-doc tcsh ksh autojump tmux powerline fonts-powerline
 
 0. Search tool
 Ack, better tool than grep.  sudo apt-get install ack-grep
+silversearcher-ag - super fast grep-like string search tool, alternative tool for ack-grep
 pdfgrep - Search in pdf file for strings match a regular expression.
 
 0. fonts
 ttf-bitstream-vera - The Bitstream Vera family of free TrueType fonts
+fonts-powerline - powerline symbols font, need by Powerline and vim-airline
 
 0. Input Methods
 fcitx - Flexible Input Method Framework
@@ -419,7 +418,10 @@ NetBSD
 Document tools
 Doxygen - Documentation system for C, C++, Java, Python and other languages
 sudo apt-get install doxygen doxygen-doc doxygen-gui
-markdown
+vim-markdown
+pandoc - general markup converter
+highlight - Universal source code to formatted text converter
+source-highlight - convert source code to syntax highlight document
 
 Web blog manager
 wordpress
