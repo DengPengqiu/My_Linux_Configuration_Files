@@ -340,6 +340,12 @@ openjdk-8-demo
 openjdk-8-doc
 openjdk-8-jdk
 
+Scala - for Spark framework
+scala - Scala Programming Language
+scala-doc - Scala API document
+scala-library - Scala Standard Library
+sudo apt-get install scala scala-doc scala-library
+
 12.Data Visualization
 gnuplot, gnuplot-data, gnuplot-doc
 gnuplot-x11, gnuplot-qt, gnuplot-tex
