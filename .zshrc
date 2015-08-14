@@ -78,4 +78,7 @@ export ARCHFLAGS="-arch x86_64"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias ls="ls -F --color=auto"
+alias ls="ls -hF --color=auto"
+alias ll="ls -lhF --color=auto"
+alias la="ls -lahF --color=auto"
+alias acs="apt-cache search"

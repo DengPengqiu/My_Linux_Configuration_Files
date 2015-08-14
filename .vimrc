@@ -192,7 +192,7 @@ func! ClosePair(char)
 endfunc
 func! AutoLeftBrace(open, close) " Complete for {}
   let line = getline('.')
-  let idx = match(line, ')\|else\|do')
+  let idx = match(line, ')\|else\|do\|namespace\|class\|struct\|enum\|union')
   if idx != -1
     return a:open.a:close."\<ESC>i\<CR>\<ESC>O"
   else

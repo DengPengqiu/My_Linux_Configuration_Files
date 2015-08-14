@@ -152,6 +152,10 @@ runsnakerun - GUI utility for (python) cProfile or Profile profiler dumps
 Python pdf miner
 sudo apt-get install Python-pdfminer
 
+python natural language processing tool
+python-nltk - python libraries for natural language processe
+python3-nltk - python3 libraries for natural language processe
+
 6.Program Checker
 valgrind(memory Checker, especially for dynamic memory allocation)
 valgrind是用仿真器的方式实现的，是一个工具套件，包括Memcheck，Cachegrind，Callgrind，Massif，
@@ -296,10 +300,18 @@ C++ kNN library
 FLANN - Fast Library for Approximate Nearest Neighbor
 sudo apt-get install libflann-dev libflann1.8 flann-doc
 
+C++ Machine Learning tools
+intuitive, fast, scalable C++ Machine Learning Library
+libmlpack-dev(develop library), libmlpack1(runtime library), mlpack-bin, mlpack-doc
+
 libcppunit-1.13-0, libcppunit-dev, libcppunit-doc - Unit Testing library for C++
 libcunit1, libcunit1-dev, libcunit-doc - Unit Test Library for C
 libcunit1-ncurses, libcunit1-ncurse-dev - Unit Test Library for C(ncurses)
 
+C++ GUI framework(in Ubuntu15.04, the qt4 version is qt4.8.6, qt5 version is qt5.4.1)
+libqt4-dev libqt4-dev-bin qt4-dev-tools qt4-doc qt4-doc-html qt4-demos
+
+For Java
 junit, junit-doc - Automated test framework for Java(JUnit) and its document
 junit4, junit4-doc - JUnit regression test framework for Java and its document
 libjunitperf-java, libjunitperf-java-doc - JUnit extensions for performance and
@@ -310,11 +322,20 @@ shunit2 - Unit Test Framework for Bourne-based Shells
 key-value storage library
 sudo apt-get install libleveldb1 libleveldb-dbg leveldb-doc
 
-memcachedb - persistance storage engine using the Memcache protocal
-sudo apt-get install memcachedb
+memcached - A high performance memory object caching system
+sudo apt-get install memcached python-memcache python-pymemcache libmemcached-dbg|dev|tools
+libmemcached11
 
 redis - persistance key-value database in memory with network interface
-sudo apt-get install redis-server redis-tools python-redis
+sudo apt-get install redis-server redis-tools python-redis python3-redis libhiredis-dbg|dev
+libhiredis0.10(minimalistic C client library for redis)
+
+nginx - small, powerful, scalable web server/proxy
+sudo apt-get install nginx nginx-core(core version) nginx-light(basic version)
+nginx-full(standard version) nginx-extras(extend version) nginx-doc
+
+libevent - asynchronous event notification library
+libevent-2.0-5, Libevent-1.4-2
 
 11.Programming Language
 Python
@@ -340,7 +361,7 @@ openjdk-8-demo
 openjdk-8-doc
 openjdk-8-jdk
 
-Scala - for Spark framework
+Scala - for Spark framework(current version is 2.9.2)
 scala - Scala Programming Language
 scala-doc - Scala API document
 scala-library - Scala Standard Library
@@ -416,9 +437,9 @@ CMonkery
 Libev
 Lua
 sqlite
-Nginx
+nginx
 UNIX v6
-Memcached
+Memcached - A High Performance Memory object cache system
 NetBSD
 
 Document tools
@@ -450,3 +471,7 @@ iftop - display bandwidth usage information on a network interface
 
 Statistical tool (stat, vmstat, ifstat, iostat, pidstat)
 dstat - versatile resource statistical tool (vmstat, iostat, pidstat)
+
+MindMap
+XMind
+FreeMind - Java Program for Creating and Viewing mindmaps
