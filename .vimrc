@@ -201,7 +201,7 @@ func! AutoLeftBrace(open, close) " Complete for {}
 endfunc " This function create by Pengqiu Deng
 func! AutoAngleBracket(open, close) " Complete for <>
   let line = getline('.')
-  let idx = match(line,'vector\|array\|list\|stack\|que\|map\|set\|include\|template\|ptr\|distri')
+  let idx = match(line,'vector\|array\|list\|stack\|que\|map\|set\|include\|template\|ptr\|distri\|numeric')
   if idx != -1
     return a:open.a:close."\<ESC>i"
   else

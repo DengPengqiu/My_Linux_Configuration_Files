@@ -56,7 +56,9 @@ astyle - Source code indenter for C, C++, Objective-C, Objective-C++, C# and Jav
 
 关于字体设置
 gnome-tweak-tool
-我用过Ubuntu和Fedora后，发觉在相同的字体设置下，Ubuntu的字体要比Fedora的细一些，原因是Ubuntu默认的font hinting(微调)为None,想要让Ubuntu的字体粗一些的方法就是安装一个软件: gnome-tweak-tool。sudo apt-get install gnome-tweak-tool, 然后点选Font-->hinting, 选择Full或者Medium。
+我用过Ubuntu和Fedora后，发觉在相同的字体设置下，Ubuntu的字体要比Fedora的细一些，原因是Ubuntu默认的
+font hinting(微调)为None,想要让Ubuntu的字体粗一些的方法就是安装一个软件: gnome-tweak-tool。
+sudo apt-get install gnome-tweak-tool, 然后点选Font-->hinting, 选择Full或者Medium。
 
 2.Compiler and Linker
 gcc
@@ -85,8 +87,9 @@ build-essential(only for Ubuntu, not Fedora)
 
 
 3.Project Manager
-make
-cmake
+make, cmake
+sudo apt-get install make make-doc cmake cmake-data cmake-dbg cmake-doc
+
 autoconf
 automake
 libtool
@@ -328,6 +331,7 @@ libmemcached11
 
 redis - persistance key-value database in memory with network interface
 sudo apt-get install redis-server redis-tools python-redis python3-redis libhiredis-dbg|dev
+                     lua-redis lua-redis-dev
 libhiredis0.10(minimalistic C client library for redis)
 
 nginx - small, powerful, scalable web server/proxy
